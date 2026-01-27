@@ -6,7 +6,7 @@
 /*   By: leonpouet <leonpouet@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 11:44:39 by leonpouet         #+#    #+#             */
-/*   Updated: 2026/01/27 12:32:49 by leonpouet        ###   ########.fr       */
+/*   Updated: 2026/01/27 16:16:21 by leonpouet        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int main(int ac, char **av)
 		freelist(head_a);
 		return (0);
 	}
-
+	index_chained_list(&head_a);
 	printlist(head_a);
 	// printlist(head_b);
 	freelist(head_a);

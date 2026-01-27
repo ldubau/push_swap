@@ -6,7 +6,7 @@
 /*   By: leonpouet <leonpouet@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 10:14:30 by leonpouet         #+#    #+#             */
-/*   Updated: 2026/01/26 18:58:33 by leonpouet        ###   ########.fr       */
+/*   Updated: 2026/01/27 16:46:35 by leonpouet        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ Node	*createNode(int value)
 	if(newNode == NULL)
 		return (NULL);
 	newNode->data = value;
+	newNode->index = 0;
 	newNode->next = NULL;
 	return (newNode);
 }
@@ -57,7 +58,7 @@ void	printlist(Node *head)
 {
 	while(head != NULL)
 	{
-		printf("%d -> ", head->data);          //Mettre ft_printf
+		printf("(%d and %d) -> ", head->data, head->index);          //Mettre ft_printf
 		head = head->next;
 	}
 	printf("NULL\n");

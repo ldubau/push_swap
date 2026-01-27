@@ -47,9 +47,7 @@ void	rrr(Node **head_a, Node **head_b);
 void	free_all(char **tbl);
 int		check_error(char **tbl);
 
-
-
-int	*array_build(Node **head);    //voir si on garde
+void	index_chained_list(Node **head);
 
 #endif
 
