@@ -6,59 +6,70 @@
 /*   By: leonpouet <leonpouet@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 11:44:39 by leonpouet         #+#    #+#             */
-/*   Updated: 2026/01/23 11:21:12 by leonpouet        ###   ########.fr       */
+/*   Updated: 2026/01/27 12:32:49 by leonpouet        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft.h"
 
-
-void	chained_list_build(Node **head_a, int ac, char **av)
+char	**chained_list_build(Node **head_a, int ac, char **av)
 {
 	int	i;
 	char	**tbl;
 
+	i = 0;
+	tbl = NULL;
 	if (ac > 2)
 	{
-		i = 1;
-		while(i < ac)
-			pushfront(head_a, atoi(av[i++]));
+		tbl = calloc(sizeof(char*), ac);
+		while(i + 1 < ac)
+		{
+			tbl[i] = ft_strdup(av[i + 1]);
+			i ++;
+		}
+		i = 0;
 	}
 	else if (ac == 2)
-	{
-		i = 0;
 		tbl = ft_split(av[1], ' ');
-		while (tbl[i])
-		{
-			pushfront(head_a, atoi(tbl[i]));
-			free(tbl[i++]);
-		}
-		free(tbl);
-	}
+	while (tbl[i])
+		pushfront(head_a, ft_atoi(tbl[i++]));
+	return (tbl);
 }
-
-#include <stdio.h>
 
 int main(int ac, char **av)
 {
 	Node	*head_a;
 	// Node	*head_b;
+	char **tbl;
 
 	head_a = NULL;
 	// head_b = NULL;
 
-	if (check_error(ac, av) == 0)
-		printf("error nigga");
-	else
-		printf("good");
-	chained_list_build(&head_a, ac, av);
-	// reverse_rotate(&head_a);
-	// reverse_rotate(&head_a);
-	// rotate(&head_a);
-	// rotate(&head_a);
-	// printlist(head_a);
+	tbl = chained_list_build(&head_a, ac, av);
+	if (!tbl)
+		return (0);
+	if (check_error(tbl) == 0)
+	{
+		freelist(head_a);
+		return (0);
+	}
+
+	printlist(head_a);
 	// printlist(head_b);
-	// freelist(head_a);
+	freelist(head_a);
+	free_all(tbl);
 	return 0;
 }
+
+
+
+// int *arr = array_build(&head_a);
+// 	Node *tmp = head_a;
+// 	int i = 0;
+// 	while (tmp)
+// 	{
+// 	printf("%d -> ", arr[i]);
+// 	tmp = tmp->next;
+// 	i ++;
+// 	}

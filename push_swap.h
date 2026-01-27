@@ -9,11 +9,15 @@
 typedef struct Node
 {
 	int			data;
+	int			index;
 	struct Node	*next;
 } Node;
 
+int		ft_isdigit(int c);
 char	**ft_split(char const *s, char c);
 int		ft_atoi(const char *str);
+size_t	ft_strlen(const char *s);
+
 Node	*createNode(int value);
 void	pushfront(Node **head, int	value);
 void	pushback(Node **head, int value);
@@ -40,7 +44,14 @@ void	rrr(Node **head_a, Node **head_b);
 
 // error check
 
-int	check_error(int ac, char **av);
-int	check_no_double(char **tbl);
+void	free_all(char **tbl);
+int		check_error(char **tbl);
+
+
+
+int	*array_build(Node **head);    //voir si on garde
 
 #endif
+
+
+// ccw swap.c rotate.c reverse_rotate.c push.c main.c index.c error_check.c chained_list_utils.c -I/home/leonpouet/Documents/42-Libft /home/leonpouet/Documents/42-Libft/libft.a
