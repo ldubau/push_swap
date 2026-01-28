@@ -6,7 +6,7 @@
 /*   By: leonpouet <leonpouet@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 20:06:35 by leonpouet         #+#    #+#             */
-/*   Updated: 2026/01/28 17:32:32 by leonpouet        ###   ########.fr       */
+/*   Updated: 2026/01/28 18:27:23 by leonpouet        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,9 @@ int	check_number(char **tbl)
 		j = 0;
 		while (tbl[i][j])
 		{
-			if(ft_isdigit(tbl[i][j]) == 0 && tbl[i][0] != '-')
+			if(ft_isdigit(tbl[i][j]) == 0 && tbl[i][j] != '-') // faire en sorte de rejete --
 			{
-				printf("(%s) is not a number\n", tbl[i]);  // mettre error
+				printf("(%s) is not a number\n", tbl[i]);  // mettre error avec write
 				return (0);
 			}
 			j ++;

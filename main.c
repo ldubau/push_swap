@@ -6,11 +6,36 @@
 /*   By: leonpouet <leonpouet@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 11:44:39 by leonpouet         #+#    #+#             */
-/*   Updated: 2026/01/28 17:05:55 by leonpouet        ###   ########.fr       */
+/*   Updated: 2026/01/28 18:24:38 by leonpouet        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+char	**build_by_string(int ac, char **av)
+{
+	int		i;
+	char	**tbl;
+
+	i = 0;
+	tbl = calloc(sizeof(char*), ac);
+	if (!tbl)
+	{
+		free_all(tbl);
+		return (0);
+	}
+	while(i + 1 < ac)
+	{
+		tbl[i] = ft_strdup(av[i + 1]);
+		if (!tbl[i])
+		{
+			free_all(tbl);
+			return (0);
+		}
+		i ++;
+	}
+	return (tbl);
+}
 
 char	**chained_list_build(Node **head_a, int ac, char **av)
 {
@@ -21,22 +46,23 @@ char	**chained_list_build(Node **head_a, int ac, char **av)
 	tbl = NULL;
 	if (ac > 2)
 	{
-		tbl = calloc(sizeof(char*), ac);
-		while(i + 1 < ac)
-		{
-			tbl[i] = ft_strdup(av[i + 1]);
-			i ++;
-		}
-		i = 0;
+		tbl = build_by_string(ac, av);
+		if (!tbl)
+			return (0);
 	}
 	else if (ac == 2)
 		tbl = ft_split(av[1], ' ');
+	if (!tbl)
+	{
+		free_all(tbl);
+		return (0);
+	}
 	while (tbl[i])
 		pushfront(head_a, ft_atoi(tbl[i++]));
 	return (tbl);
 }
 
-int main(int ac, char **av)
+int main(int ac, char **av)   // faire les petit cas
 {
 	Node	*head_a;
 	Node	*head_b;
