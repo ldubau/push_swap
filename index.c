@@ -6,7 +6,7 @@
 /*   By: leonpouet <leonpouet@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 17:49:23 by leonpouet         #+#    #+#             */
-/*   Updated: 2026/01/27 16:53:35 by leonpouet        ###   ########.fr       */
+/*   Updated: 2026/01/28 14:15:07 by leonpouet        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,7 @@ int	*array_build(Node **head, int size)
 	i = 0;
 	arr = malloc(sizeof(int) * size);
 	if (!arr)
-	{
-		free(arr);
 		return (0);
-	}
 	while (tmp != NULL)
 	{
 		arr[i] = tmp->data;
@@ -56,7 +53,7 @@ void	array_sort(int *arr, int size)
 	int	j;
 	int	bool;
 	int	tmp;
-	
+
 	bool = 0;
 	while (bool == 0)
 	{
@@ -78,12 +75,12 @@ void	array_sort(int *arr, int size)
 	}
 }
 
-void printarr(int *arr, int size)
-{
-	int i = 0;
-	while (i < size)
-		printf("%d ", arr[i ++]);
-}
+// void printarr(int *arr, int size)
+// {
+// 	int i = 0;
+// 	while (i < size)
+// 		printf("%d ", arr[i ++]);
+// }
 
 void	index_chained_list(Node **head)
 {
@@ -97,10 +94,8 @@ void	index_chained_list(Node **head)
 	arr = array_build(head, size);
 	if (!arr)
 		return ;
-	printarr(arr, size);
 	array_sort(arr, size);
 	printf("\n");
-	printarr(arr, size);
 	while (i < size)
 	{
 		tmp = *head;

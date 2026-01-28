@@ -6,12 +6,11 @@
 /*   By: leonpouet <leonpouet@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 11:44:39 by leonpouet         #+#    #+#             */
-/*   Updated: 2026/01/27 16:16:21 by leonpouet        ###   ########.fr       */
+/*   Updated: 2026/01/28 17:05:55 by leonpouet        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "libft.h"
 
 char	**chained_list_build(Node **head_a, int ac, char **av)
 {
@@ -40,12 +39,11 @@ char	**chained_list_build(Node **head_a, int ac, char **av)
 int main(int ac, char **av)
 {
 	Node	*head_a;
-	// Node	*head_b;
+	Node	*head_b;
 	char **tbl;
 
 	head_a = NULL;
-	// head_b = NULL;
-
+	head_b = NULL;
 	tbl = chained_list_build(&head_a, ac, av);
 	if (!tbl)
 		return (0);
@@ -55,8 +53,8 @@ int main(int ac, char **av)
 		return (0);
 	}
 	index_chained_list(&head_a);
+	radix_sort(&head_a, &head_b);
 	printlist(head_a);
-	// printlist(head_b);
 	freelist(head_a);
 	free_all(tbl);
 	return 0;

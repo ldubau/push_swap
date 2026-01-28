@@ -3,6 +3,7 @@
 
 #include <stdlib.h>
 #include <unistd.h>
+#include "/home/leonpouet/Documents/42-Libft/libft.h"
 
 #include <stdio.h>    // a supprimé
 
@@ -47,7 +48,10 @@ void	rrr(Node **head_a, Node **head_b);
 void	free_all(char **tbl);
 int		check_error(char **tbl);
 
+int		chained_list_size(Node **head);
 void	index_chained_list(Node **head);
+
+void radix_sort(Node **head_a, Node **head_b);
 
 #endif
 

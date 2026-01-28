@@ -6,7 +6,7 @@
 /*   By: leonpouet <leonpouet@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 20:06:35 by leonpouet         #+#    #+#             */
-/*   Updated: 2026/01/27 12:03:37 by leonpouet        ###   ########.fr       */
+/*   Updated: 2026/01/28 17:32:32 by leonpouet        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	check_no_double(char **tbl)
 		j = i + 1;
 		while (tbl[j])
 		{
-			if (atoi(tbl[i]) == atoi(tbl[j]))    // remplacer par ft_atoi
+			if (ft_atoi(tbl[i]) == ft_atoi(tbl[j]))
 			{
 				printf("the number (%s) appears multiple times\n", tbl[i]);  // mettre error
 				return (0);
@@ -61,7 +61,7 @@ int	check_number(char **tbl)
 		j = 0;
 		while (tbl[i][j])
 		{
-			if(ft_isdigit(tbl[i][j]) == 0)
+			if(ft_isdigit(tbl[i][j]) == 0 && tbl[i][0] != '-')
 			{
 				printf("(%s) is not a number\n", tbl[i]);  // mettre error
 				return (0);
@@ -73,7 +73,7 @@ int	check_number(char **tbl)
 	return (1);
 }
 
-int	check_error(char **tbl) // faire une fonction pour les int max et int min
+int	check_error(char **tbl)
 {
 	if (check_no_double(tbl) == 0 || check_number(tbl) == 0)
 	{
