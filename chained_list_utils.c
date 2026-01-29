@@ -6,7 +6,7 @@
 /*   By: leonpouet <leonpouet@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 10:14:30 by leonpouet         #+#    #+#             */
-/*   Updated: 2026/01/28 17:06:13 by leonpouet        ###   ########.fr       */
+/*   Updated: 2026/01/29 11:02:02 by leonpouet        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,32 +25,36 @@ Node	*createNode(int value)
 	return (newNode);
 }
 
-void	pushfront(Node **head, int	value)
+bool	pushfront(Node **head, int	value)
 {
 	Node	*newNode;
 
 	newNode = createNode(value);
 	if (!newNode)
-		return;
+		return (false);
 	newNode->next = *head;
 	*head = newNode;
+	return (true);
 }
 
-void pushback(Node **head, int value)
+bool	pushback(Node **head, int value)
 {
 	Node	*newNode;
 	Node	*tmp;
 
 	newNode = createNode(value);
+	if (!newNode)
+		return (false);
 	tmp = *head;
 	if(head == NULL)
 	{
 		*head = newNode;
-		return;
+		return (true);
 	}
 	while(tmp->next != NULL)
 		tmp = tmp->next;
 	tmp->next = newNode;
+	return (true);
 }
 #include <stdio.h>
 

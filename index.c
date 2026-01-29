@@ -6,7 +6,7 @@
 /*   By: leonpouet <leonpouet@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 17:49:23 by leonpouet         #+#    #+#             */
-/*   Updated: 2026/01/28 14:15:07 by leonpouet        ###   ########.fr       */
+/*   Updated: 2026/01/29 11:03:24 by leonpouet        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,15 +51,15 @@ void	array_sort(int *arr, int size)
 {
 	int	i;
 	int	j;
-	int	bool;
+	int	check;
 	int	tmp;
 
-	bool = 0;
-	while (bool == 0)
+	check = 0;
+	while (check == 0)
 	{
 		i = 0;
 		j = 1;
-		bool = 1;
+		check = 1;
 		while (j < size)
 		{
 			if (arr[i] > arr[j])
@@ -67,7 +67,7 @@ void	array_sort(int *arr, int size)
 				tmp = arr[i];
 				arr[i] = arr[j];
 				arr[j] = tmp;
-				bool = 0;
+				check = 0;
 			}
 			i ++;
 			j ++;

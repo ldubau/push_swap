@@ -6,7 +6,7 @@
 /*   By: leonpouet <leonpouet@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 20:06:35 by leonpouet         #+#    #+#             */
-/*   Updated: 2026/01/28 18:27:23 by leonpouet        ###   ########.fr       */
+/*   Updated: 2026/01/29 10:26:07 by leonpouet        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	check_no_double(char **tbl)
 		{
 			if (ft_atoi(tbl[i]) == ft_atoi(tbl[j]))
 			{
-				printf("the number (%s) appears multiple times\n", tbl[i]);  // mettre error
+				printf("the number (%s) appears multiple times\n", tbl[i]);  // mettre error avec write
 				return (0);
 			}
 			j ++;

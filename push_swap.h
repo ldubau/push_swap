@@ -3,6 +3,7 @@
 
 #include <stdlib.h>
 #include <unistd.h>
+#include <stdbool.h>
 #include "/home/leonpouet/Documents/42-Libft/libft.h"
 
 #include <stdio.h>    // a supprimé
@@ -20,8 +21,8 @@ int		ft_atoi(const char *str);
 size_t	ft_strlen(const char *s);
 
 Node	*createNode(int value);
-void	pushfront(Node **head, int	value);
-void	pushback(Node **head, int value);
+bool	pushfront(Node **head, int	value);
+bool	pushback(Node **head, int value);
 void	printlist(Node *head);
 void	freelist(Node *head);
 void	swap(Node **head);
@@ -51,7 +52,9 @@ int		check_error(char **tbl);
 int		chained_list_size(Node **head);
 void	index_chained_list(Node **head);
 
-void radix_sort(Node **head_a, Node **head_b);
+char	**chained_list_build(Node **head_a, int ac, char **av);
+
+void	radix_sort(Node **head_a, Node **head_b);
 
 #endif
 
