@@ -6,7 +6,7 @@
 /*   By: leonpouet <leonpouet@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 20:06:35 by leonpouet         #+#    #+#             */
-/*   Updated: 2026/01/29 10:26:07 by leonpouet        ###   ########.fr       */
+/*   Updated: 2026/01/29 20:02:16 by leonpouet        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	free_all(char **tbl)
 	tbl = NULL;
 }
 
-int	check_no_double(char **tbl)
+bool	check_no_double(char **tbl)
 {
 	int	i;
 	int	j;
@@ -39,18 +39,15 @@ int	check_no_double(char **tbl)
 		while (tbl[j])
 		{
 			if (ft_atoi(tbl[i]) == ft_atoi(tbl[j]))
-			{
-				printf("the number (%s) appears multiple times\n", tbl[i]);  // mettre error avec write
-				return (0);
-			}
+				return (false);
 			j ++;
 		}
 		i ++;
 	}
-	return (1);
+	return (true);
 }
 
-int	check_number(char **tbl)
+bool	check_number(char **tbl)
 {
 	int	i;
 	int	j;
@@ -61,22 +58,51 @@ int	check_number(char **tbl)
 		j = 0;
 		while (tbl[i][j])
 		{
-			if(ft_isdigit(tbl[i][j]) == 0 && tbl[i][j] != '-') // faire en sorte de rejete --
-			{
-				printf("(%s) is not a number\n", tbl[i]);  // mettre error avec write
-				return (0);
-			}
-			j ++;
+			if(ft_isdigit(tbl[i][j]) == 1 ||
+			((tbl[i][j] == '-'|| tbl[i][j] == '+') && j == 0))
+				j ++;
+			else
+				return (false);
 		}
 		i ++;
 	}
-	return (1);
+	return (true);
+}
+
+bool	check_size(char **tbl)
+{
+	int		i;
+	int		j;
+	int		sign;
+	long	nbr;
+
+	i = 0;
+	while (tbl[i])
+	{
+		j = 0;
+		sign = 1;
+		nbr = 0;
+		if (tbl[i][j] == '-')
+		{
+			sign *= -1;
+			j++;
+		}
+		while(tbl[i][j])
+		{
+			nbr = nbr * 10 + (tbl[i][j++] - '0');
+			if ((sign == 1 && nbr > INT_MAX) || (sign == -1 && nbr * sign < INT_MIN))
+				return (false);
+		}
+		i ++;
+	}
+	return (true);
 }
 
 int	check_error(char **tbl)
 {
-	if (check_no_double(tbl) == 0 || check_number(tbl) == 0)
+	if (!check_number(tbl) || !check_no_double(tbl) || !check_size(tbl))
 	{
+		write(1, "error\n", 6);
 		free_all(tbl);
 		return (0);
 	}

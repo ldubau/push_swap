@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdbool.h>
+#include <limits.h>
 #include "/home/leonpouet/Documents/42-Libft/libft.h"
 
 #include <stdio.h>    // a supprimé
@@ -17,7 +18,7 @@ typedef struct Node
 
 int		ft_isdigit(int c);
 char	**ft_split(char const *s, char c);
-int		ft_atoi(const char *str);
+size_t	ft_atoi(const char *str);
 size_t	ft_strlen(const char *s);
 
 Node	*createNode(int value);
@@ -59,4 +60,4 @@ void	radix_sort(Node **head_a, Node **head_b);
 #endif
 
 
-// ccw swap.c rotate.c reverse_rotate.c push.c main.c index.c error_check.c chained_list_utils.c -I/home/leonpouet/Documents/42-Libft /home/leonpouet/Documents/42-Libft/libft.a
+// ccw push_swap.a /home/leonpouet/Documents/42-Libft/libft.a
