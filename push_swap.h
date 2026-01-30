@@ -18,7 +18,7 @@ typedef struct Node
 
 int		ft_isdigit(int c);
 char	**ft_split(char const *s, char c);
-size_t	ft_atoi(const char *str);
+int		ft_atoi(const char *str);
 size_t	ft_strlen(const char *s);
 
 Node	*createNode(int value);

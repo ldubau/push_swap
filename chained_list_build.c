@@ -6,7 +6,7 @@
 /*   By: leonpouet <leonpouet@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 10:15:09 by leonpouet         #+#    #+#             */
-/*   Updated: 2026/01/30 10:51:23 by leonpouet        ###   ########.fr       */
+/*   Updated: 2026/01/30 11:06:26 by leonpouet        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ char	**chained_list_build(Node **head_a, int ac, char **av)
 	if (!tbl)
 		return (NULL);
 	while (tbl[i])
-		if (!pushfront(head_a, ft_atoi(tbl[i++])))
+		if (!pushback(head_a, ft_atoi(tbl[i++])))
 		{
 			free_all(tbl);
 			freelist(*head_a);

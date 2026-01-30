@@ -6,7 +6,7 @@
 /*   By: leonpouet <leonpouet@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 10:14:30 by leonpouet         #+#    #+#             */
-/*   Updated: 2026/01/29 11:02:02 by leonpouet        ###   ########.fr       */
+/*   Updated: 2026/01/30 11:14:17 by leonpouet        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ bool	pushback(Node **head, int value)
 	if (!newNode)
 		return (false);
 	tmp = *head;
-	if(head == NULL)
+	if(*head == NULL)
 	{
 		*head = newNode;
 		return (true);

@@ -6,7 +6,7 @@
 /*   By: leonpouet <leonpouet@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 11:44:39 by leonpouet         #+#    #+#             */
-/*   Updated: 2026/01/30 06:44:11 by leonpouet        ###   ########.fr       */
+/*   Updated: 2026/01/30 14:37:24 by leonpouet        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,8 @@ int	main(int ac, char **av)   // faire les petit cas
 		return (0);
 	}
 	index_chained_list(&head_a);
-	printlist(head_a);
 	printf("\n");
 	radix_sort(&head_a, &head_b);
-	printlist(head_a);
 	freelist(head_a);
 	free_all(tbl);
 	return 0;

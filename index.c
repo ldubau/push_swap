@@ -6,18 +6,11 @@
 /*   By: leonpouet <leonpouet@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 17:49:23 by leonpouet         #+#    #+#             */
-/*   Updated: 2026/01/30 06:42:19 by leonpouet        ###   ########.fr       */
+/*   Updated: 2026/01/30 11:15:33 by leonpouet        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void printarr(int *arr, int size)    // A SUPPRIME !!!
-{
-	int i = 0;
-	while (i < size)
-		printf("%d ", arr[i ++]);
-}
 
 int	chained_list_size(Node **head)
 {
@@ -51,8 +44,6 @@ int	*array_build(Node **head, int size)
 		tmp = tmp->next;
 		i ++;
 	}
-	printarr(arr, size);
-	printf("\n");
 	return (arr);
 }
 
@@ -82,8 +73,6 @@ void	array_sort(int *arr, int size)
 			j ++;
 		}
 	}
-	printarr(arr, size);
-	printf("\n");
 }
 
 void	index_chained_list(Node **head)
