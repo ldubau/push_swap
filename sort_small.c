@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_small.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leondubau <leondubau@student.42.fr>        +#+  +:+       +#+        */
+/*   By: leonpouet <leonpouet@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 10:19:52 by leondubau         #+#    #+#             */
-/*   Updated: 2026/02/05 21:16:47 by leondubau        ###   ########.fr       */
+/*   Updated: 2026/02/06 12:01:11 by leonpouet        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,8 @@ void	sort_five(Node **head_a, Node **head_b, int size)
 		pb(head_a, head_b);
 		min++;
 	}
-	sort_three(head_a);
-	while (head_b)
+	if (!is_list_sorted(head_a))
+		sort_three(head_a);
+	while (*head_b)
 		pa(head_a, head_b);
 }

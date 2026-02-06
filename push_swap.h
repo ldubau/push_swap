@@ -60,6 +60,7 @@ char	**chained_list_build(Node **head_a, int ac, char **av);
 void	sorting(Node **head_a, Node **head_b);
 void	sort_three(Node **head_a);
 void	sort_five(Node **head_a, Node **head_b, int size);
+int	is_list_sorted(Node **head);
 
 #endif
 
