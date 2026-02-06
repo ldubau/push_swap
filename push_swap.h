@@ -5,7 +5,7 @@
 #include <unistd.h>
 #include <stdbool.h>
 #include <limits.h>
-#include "./Libft-42/libft.h"
+#include "./42-Libft/libft.h"
 
 #include <stdio.h>    // a supprimé
 
