@@ -6,7 +6,7 @@
 /*   By: leondubau <leondubau@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 17:40:40 by leonpouet         #+#    #+#             */
-/*   Updated: 2026/02/05 17:39:52 by leondubau        ###   ########.fr       */
+/*   Updated: 2026/02/06 11:08:47 by leondubau        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void	sorting(Node **head_a, Node **head_b)
 	else if (size <= 3 && !is_list_sorted(head_a))
 		sort_three(head_a);
 	else if (size <= 5 && !is_list_sorted(head_a))
-		sort_five(head_a, head_b);
+		sort_five(head_a, head_b, size);
 	else if (size > 5 && !is_list_sorted(head_a))
 		k_sort(head_a, head_b);
 }
