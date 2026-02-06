@@ -6,15 +6,15 @@
 /*   By: leonpouet <leonpouet@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 10:10:29 by leonpouet         #+#    #+#             */
-/*   Updated: 2026/01/21 16:09:35 by leonpouet        ###   ########.fr       */
+/*   Updated: 2026/02/06 15:07:29 by leonpouet        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(Node **head)
+void	swap(t_stack **head)
 {
-	Node *tmp;
+	t_stack	*tmp;
 
 	if (*head == NULL || (*head)->next == NULL)
 		return ;
@@ -24,19 +24,19 @@ void	swap(Node **head)
 	*head = tmp;
 }
 
-void	sa(Node **head)
+void	sa(t_stack **head)
 {
 	swap(head);
 	write(1, "sa\n", 3);
 }
 
-void	sb(Node **head)
+void	sb(t_stack **head)
 {
 	swap(head);
 	write(1, "sb\n", 3);
 }
 
-void	ss(Node **head_a, Node **head_b)
+void	ss(t_stack **head_a, t_stack **head_b)
 {
 	swap(head_a);
 	swap(head_b);

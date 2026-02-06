@@ -6,7 +6,7 @@
 /*   By: leonpouet <leonpouet@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 10:15:09 by leonpouet         #+#    #+#             */
-/*   Updated: 2026/02/06 12:27:31 by leonpouet        ###   ########.fr       */
+/*   Updated: 2026/02/06 15:11:06 by leonpouet        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ char	**build_by_string(int ac, char **av)
 	char	**tbl;
 
 	i = 0;
-	tbl = calloc(sizeof(char*), ac);
+	tbl = calloc(sizeof(char *), ac);
 	if (!tbl)
 		return (NULL);
-	while(i + 1 < ac)
+	while (i + 1 < ac)
 	{
 		tbl[i] = ft_strdup(av[i + 1]);
 		if (!tbl[i])
@@ -34,9 +34,9 @@ char	**build_by_string(int ac, char **av)
 	return (tbl);
 }
 
-char	**chained_list_build(Node **head_a, int ac, char **av)
+char	**chained_list_build(t_stack **head_a, int ac, char **av)
 {
-	int	i;
+	int		i;
 	char	**tbl;
 
 	i = 0;

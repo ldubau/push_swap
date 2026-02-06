@@ -6,20 +6,20 @@
 /*   By: leonpouet <leonpouet@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 10:19:52 by leondubau         #+#    #+#             */
-/*   Updated: 2026/02/06 12:01:11 by leonpouet        ###   ########.fr       */
+/*   Updated: 2026/02/06 15:07:18 by leonpouet        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	find_pos_min(Node **head, int min)
+int	find_pos_min(t_stack **head, int min)
 {
-	Node	*tmp;
+	t_stack	*tmp;
 	int		i;
 
 	tmp = *head;
 	i = 0;
-	while(tmp->index != min)
+	while (tmp->index != min)
 	{
 		tmp = tmp->next;
 		i++;
@@ -27,7 +27,7 @@ int	find_pos_min(Node **head, int min)
 	return (i);
 }
 
-void	sort_three(Node **head_a)
+void	sort_three(t_stack **head_a)
 {
 	int	a;
 	int	b;
@@ -44,7 +44,7 @@ void	sort_three(Node **head_a)
 		sa(head_a);
 }
 
-void	sort_five(Node **head_a, Node **head_b, int size)
+void	sort_five(t_stack **head_a, t_stack **head_b, int size)
 {
 	int	pos_min;
 	int	min;

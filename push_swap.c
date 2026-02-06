@@ -6,35 +6,34 @@
 /*   By: leonpouet <leonpouet@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 17:40:40 by leonpouet         #+#    #+#             */
-/*   Updated: 2026/02/06 12:20:29 by leonpouet        ###   ########.fr       */
+/*   Updated: 2026/02/06 15:06:32 by leonpouet        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_list_sorted(Node **head)
+int	is_list_sorted(t_stack **head)
 {
-	Node	*tmp;
+	t_stack	*tmp;
 
 	tmp = *head;
-	while(tmp->next != NULL)
+	while (tmp->next != NULL)
 	{
-		if(tmp->data > tmp->next->data)
+		if (tmp->data > tmp->next->data)
 			return (0);
 		tmp = tmp->next;
 	}
 	return (1);
 }
 
-
-int	find_pos_max(Node **head, int size)
+int	find_pos_max(t_stack **head, int size)
 {
-	Node	*tmp;
+	t_stack	*tmp;
 	int		i;
 
 	tmp = *head;
 	i = 0;
-	while(tmp->index != size - 1)
+	while (tmp->index != size - 1)
 	{
 		tmp = tmp->next;
 		i++;
@@ -42,12 +41,12 @@ int	find_pos_max(Node **head, int size)
 	return (i);
 }
 
-void	k_sort_second_part(Node **head_a, Node **head_b)
+void	k_sort_second_part(t_stack **head_a, t_stack **head_b)
 {
 	int	size;
 	int	pos_max;
 
-	while(*head_b)
+	while (*head_b)
 	{
 		size = chained_list_size(head_b);
 		pos_max = find_pos_max(head_b, size);
@@ -61,7 +60,7 @@ void	k_sort_second_part(Node **head_a, Node **head_b)
 	}
 }
 
-void	k_sort(Node **head_a, Node **head_b)
+void	k_sort(t_stack **head_a, t_stack **head_b)
 {
 	int	treshold;
 	int	size;
@@ -72,10 +71,10 @@ void	k_sort(Node **head_a, Node **head_b)
 	delta = size / 20 + 7;
 	while (*head_a)
 	{
-		if((*head_a)->index <= delta + treshold)
+		if ((*head_a)->index <= delta + treshold)
 		{
 			pb(head_a, head_b);
-			if((*head_b)->index <= treshold)
+			if ((*head_b)->index <= treshold)
 				rb(head_b);
 			treshold++;
 		}
@@ -85,7 +84,7 @@ void	k_sort(Node **head_a, Node **head_b)
 	k_sort_second_part(head_a, head_b);
 }
 
-void	sorting(Node **head_a, Node **head_b)
+void	sorting(t_stack **head_a, t_stack **head_b)
 {
 	int	size;
 

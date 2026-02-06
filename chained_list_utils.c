@@ -6,61 +6,62 @@
 /*   By: leonpouet <leonpouet@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 10:14:30 by leonpouet         #+#    #+#             */
-/*   Updated: 2026/02/06 12:26:07 by leonpouet        ###   ########.fr       */
+/*   Updated: 2026/02/06 15:05:26 by leonpouet        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-Node	*createNode(int value)
+t_stack	*create_t_stack(int value)
 {
-	Node	*newNode;
+	t_stack	*newt_stack;
 
-	newNode = malloc(sizeof(Node));
-	if(newNode == NULL)
+	newt_stack = malloc(sizeof(t_stack));
+	if (newt_stack == NULL)
 		return (NULL);
-	newNode->data = value;
-	newNode->index = 0;
-	newNode->next = NULL;
-	return (newNode);
+	newt_stack->data = value;
+	newt_stack->index = 0;
+	newt_stack->next = NULL;
+	return (newt_stack);
 }
 
-bool	pushfront(Node **head, int	value)
+bool	pushfront(t_stack **head, int value)
 {
-	Node	*newNode;
+	t_stack	*newt_stack;
 
-	newNode = createNode(value);
-	if (!newNode)
+	newt_stack = create_t_stack(value);
+	if (!newt_stack)
 		return (false);
-	newNode->next = *head;
-	*head = newNode;
+	newt_stack->next = *head;
+	*head = newt_stack;
 	return (true);
 }
 
-bool	pushback(Node **head, int value)
+bool	pushback(t_stack **head, int value)
 {
-	Node	*newNode;
-	Node	*tmp;
+	t_stack	*newt_stack;
+	t_stack	*tmp;
 
-	newNode = createNode(value);
-	if (!newNode)
+	newt_stack = create_t_stack(value);
+	if (!newt_stack)
 		return (false);
 	tmp = *head;
-	if(*head == NULL)
+	if (*head == NULL)
 	{
-		*head = newNode;
+		*head = newt_stack;
 		return (true);
 	}
-	while(tmp->next != NULL)
+	while (tmp->next != NULL)
 		tmp = tmp->next;
-	tmp->next = newNode;
+	tmp->next = newt_stack;
 	return (true);
 }
 
-void	freelist(Node *head)
+void	freelist(t_stack *head)
 {
-	Node	*tmp;
-	while(head != NULL)
+	t_stack	*tmp;
+
+	while (head != NULL)
 	{
 		tmp = head;
 		head = head->next;

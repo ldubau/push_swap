@@ -6,15 +6,15 @@
 /*   By: leonpouet <leonpouet@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 17:49:23 by leonpouet         #+#    #+#             */
-/*   Updated: 2026/01/30 11:15:33 by leonpouet        ###   ########.fr       */
+/*   Updated: 2026/02/06 15:05:45 by leonpouet        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	chained_list_size(Node **head)
+int	chained_list_size(t_stack **head)
 {
-	Node	*tmp;
+	t_stack	*tmp;
 	int		i;
 
 	tmp = *head;
@@ -27,9 +27,9 @@ int	chained_list_size(Node **head)
 	return (i);
 }
 
-int	*array_build(Node **head, int size)
+int	*array_build(t_stack **head, int size)
 {
-	Node	*tmp;
+	t_stack	*tmp;
 	int		*arr;
 	int		i;
 
@@ -75,11 +75,11 @@ void	array_sort(int *arr, int size)
 	}
 }
 
-void	index_chained_list(Node **head)
+void	index_chained_list(t_stack **head)
 {
 	int		size;
 	int		*arr;
-	Node	*tmp;
+	t_stack	*tmp;
 	int		i;
 
 	size = chained_list_size(head);
