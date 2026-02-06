@@ -3,55 +3,99 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leonpouet <leonpouet@student.42.fr>        +#+  +:+       +#+        */
+/*   By: leondubau <leondubau@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 17:40:40 by leonpouet         #+#    #+#             */
-/*   Updated: 2026/01/28 17:05:46 by leonpouet        ###   ########.fr       */
+/*   Updated: 2026/02/05 17:39:52 by leondubau        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_list_sorted(Node **head, int	size)
+int	is_list_sorted(Node **head)
+{
+	Node	*tmp;
+
+	tmp = *head;
+	while(tmp->next != NULL)
+	{
+		if(tmp->data > tmp->next->data)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
+}
+
+
+int	find_pos_max(Node **head, int size)
 {
 	Node	*tmp;
 	int		i;
 
 	tmp = *head;
 	i = 0;
-	while(tmp->next != NULL)
+	while(tmp->index != size - 1)
 	{
-		if(tmp->data > tmp->next->data)
-			return (0);
 		tmp = tmp->next;
-		i ++;
+		i++;
 	}
-	if (size != i + 1)
-		return (0);
-	return (1);
+	return (i);
 }
 
-void radix_sort(Node **head_a, Node **head_b)
+void	k_sort_second_part(Node **head_a, Node **head_b)
 {
 	int	size;
-	int	i;
-	int	j;
+	int	pos_max;
+
+	while(*head_b)
+	{
+		size = chained_list_size(head_b);
+		pos_max = find_pos_max(head_b, size);
+		if (pos_max <= size / 2)
+			while ((*head_b)->index != size - 1)
+				rb(head_b);
+		else
+			while ((*head_b)->index != size - 1)
+				rrb(head_b);
+		pa(head_a, head_b);
+	}
+}
+
+void	k_sort(Node **head_a, Node **head_b)
+{
+	int	treshold;
+	int	size;
+	int	delta;
+
+	treshold = 0;
+	size = chained_list_size(head_a);
+	delta = size / 20 + 7;
+	while (*head_a)
+	{
+		if((*head_a)->index <= delta + treshold)
+		{
+			pb(head_a, head_b);
+			if((*head_b)->index <= treshold)
+				rb(head_b);
+			treshold++;
+		}
+		else
+			ra(head_a);
+	}
+	k_sort_second_part(head_a, head_b);
+}
+
+void	sorting(Node **head_a, Node **head_b)
+{
+	int	size;
 
 	size = chained_list_size(head_a);
-	i = 0;
-	while(is_list_sorted(head_a, size) == 0)
-	{
-		j = 0;
-		while(j < size)
-		{
-			if ((((*head_a)->index >> i) & 1) == 0)
-				pb(head_a, head_b);
-			else
-				ra(head_a);
-			j ++;
-		}
-		while(*head_b != NULL)
-			pa(head_a, head_b);
-		i ++;
-	}
+	if (size <= 2 && !is_list_sorted(head_a))
+		sa(head_a);
+	else if (size <= 3 && !is_list_sorted(head_a))
+		sort_three(head_a);
+	else if (size <= 5 && !is_list_sorted(head_a))
+		sort_five(head_a, head_b);
+	else if (size > 5 && !is_list_sorted(head_a))
+		k_sort(head_a, head_b);
 }

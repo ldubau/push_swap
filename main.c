@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leonpouet <leonpouet@student.42.fr>        +#+  +:+       +#+        */
+/*   By: leondubau <leondubau@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 11:44:39 by leonpouet         #+#    #+#             */
-/*   Updated: 2026/01/30 14:37:24 by leonpouet        ###   ########.fr       */
+/*   Updated: 2026/02/05 11:15:56 by leondubau        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,7 @@ int	main(int ac, char **av)   // faire les petit cas
 		return (0);
 	}
 	index_chained_list(&head_a);
-	printf("\n");
-	radix_sort(&head_a, &head_b);
+	sorting(&head_a, &head_b);
 	freelist(head_a);
 	free_all(tbl);
 	return 0;

@@ -5,7 +5,7 @@
 #include <unistd.h>
 #include <stdbool.h>
 #include <limits.h>
-#include "/home/leonpouet/Documents/42-Libft/libft.h"
+#include "./Libft-42/libft.h"
 
 #include <stdio.h>    // a supprimé
 
@@ -55,7 +55,11 @@ void	index_chained_list(Node **head);
 
 char	**chained_list_build(Node **head_a, int ac, char **av);
 
-void	radix_sort(Node **head_a, Node **head_b);
+// sorting
+
+void	sorting(Node **head_a, Node **head_b);
+void	sort_three(Node **head_a);
+void	sort_five(Node **head_a, Node **head_b, int size);
 
 #endif
 
