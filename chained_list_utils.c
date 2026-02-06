@@ -6,7 +6,7 @@
 /*   By: leonpouet <leonpouet@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 10:14:30 by leonpouet         #+#    #+#             */
-/*   Updated: 2026/01/30 11:14:17 by leonpouet        ###   ########.fr       */
+/*   Updated: 2026/02/06 12:26:07 by leonpouet        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,17 +55,6 @@ bool	pushback(Node **head, int value)
 		tmp = tmp->next;
 	tmp->next = newNode;
 	return (true);
-}
-#include <stdio.h>
-
-void	printlist(Node *head)
-{
-	while(head != NULL)
-	{
-		printf("%d -> ", head->data);          //Mettre ft_printf
-		head = head->next;
-	}
-	printf("NULL\n");
 }
 
 void	freelist(Node *head)

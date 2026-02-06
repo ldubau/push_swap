@@ -6,7 +6,7 @@
 /*   By: leonpouet <leonpouet@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 20:06:35 by leonpouet         #+#    #+#             */
-/*   Updated: 2026/02/06 12:11:02 by leonpouet        ###   ########.fr       */
+/*   Updated: 2026/02/06 12:24:05 by leonpouet        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ int	check_error(char **tbl)
 {
 	if (!check_number(tbl) || !check_no_double(tbl) || !check_size(tbl))
 	{
-		write(1, "error\n", 6);
+		write(1, "Error\n", 6);
 		free_all(tbl);
 		return (0);
 	}

@@ -6,13 +6,13 @@
 /*   By: leonpouet <leonpouet@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 11:44:39 by leonpouet         #+#    #+#             */
-/*   Updated: 2026/02/06 11:56:02 by leonpouet        ###   ########.fr       */
+/*   Updated: 2026/02/06 12:30:22 by leonpouet        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)   // faire les petit cas
+int	main(int ac, char **av)
 {
 	Node	*head_a;
 	Node	*head_b;
@@ -30,11 +30,8 @@ int	main(int ac, char **av)   // faire les petit cas
 		freelist(head_a);
 		return (0);
 	}
-	printlist(head_a);
 	index_chained_list(&head_a);
-	printlist(head_a);
 	sorting(&head_a, &head_b);
-	printlist(head_a);
 	freelist(head_a);
 	free_all(tbl);
 	return 0;

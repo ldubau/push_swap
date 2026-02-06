@@ -7,8 +7,6 @@
 #include <limits.h>
 #include "./Libft-42/libft.h"
 
-#include <stdio.h>    // a supprimé
-
 typedef struct Node
 {
 	int			data;
@@ -16,10 +14,7 @@ typedef struct Node
 	struct Node	*next;
 } Node;
 
-int		ft_isdigit(int c);
-char	**ft_split(char const *s, char c);
-int		ft_atoi(const char *str);
-size_t	ft_strlen(const char *s);
+// chained list utils
 
 Node	*createNode(int value);
 bool	pushfront(Node **head, int	value);
@@ -31,7 +26,7 @@ void	push(Node **head_from, Node **head_to);
 void	rotate(Node **head);
 void	reverse_rotate(Node **head);
 
-// fonction demandé
+// Instructions
 
 void	sa(Node **head);
 void	sb(Node **head);
@@ -45,24 +40,23 @@ void	rra(Node **head_a);
 void	rrb(Node **head_b);
 void	rrr(Node **head_a, Node **head_b);
 
-// error check
+// Error check
 
 void	free_all(char **tbl);
 int		check_error(char **tbl);
 
-int		chained_list_size(Node **head);
-void	index_chained_list(Node **head);
-
-char	**chained_list_build(Node **head_a, int ac, char **av);
-
-// sorting
+// Sorting
 
 void	sorting(Node **head_a, Node **head_b);
 void	sort_three(Node **head_a);
 void	sort_five(Node **head_a, Node **head_b, int size);
-int	is_list_sorted(Node **head);
+int		is_list_sorted(Node **head);
+
+//	Tools
+
+int		chained_list_size(Node **head);
+void	index_chained_list(Node **head);
+char	**chained_list_build(Node **head_a, int ac, char **av);
+
 
 #endif
-
-
-// ccw push_swap.a /home/leonpouet/Documents/42-Libft/libft.a
