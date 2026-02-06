@@ -6,7 +6,7 @@
 /*   By: leonpouet <leonpouet@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 20:06:35 by leonpouet         #+#    #+#             */
-/*   Updated: 2026/01/29 20:02:16 by leonpouet        ###   ########.fr       */
+/*   Updated: 2026/02/06 12:11:02 by leonpouet        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ bool	check_number(char **tbl)
 		while (tbl[i][j])
 		{
 			if(ft_isdigit(tbl[i][j]) == 1 ||
-			((tbl[i][j] == '-'|| tbl[i][j] == '+') && j == 0))
+			((tbl[i][j] == '-'|| tbl[i][j] == '+') && j == 0 && tbl[i][j + 1]))
 				j ++;
 			else
 				return (false);
